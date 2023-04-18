@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <link rel="stylesheet" href="style.css">
+  
+  <title>Frontend Mentor | Base Apparel coming soon page</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+
+  <main>
+    <div class="card">
+        <div class="container-logo">
+          <img src="images/logo.svg" alt="logo" class="img-logo">
+        </div> 
+      <picture>
+        <source media="(min-width: 600px )" srcset="images/hero-desktop.jpg">
+        <img src="images/hero-mobile.jpg" alt="a woman">
+      </picture>
+      <section class="coming">
+        <h1><span>We're</span> coming soon</h1>
+        <p>
+          Hello fellow shoppers! We're currently building our new fashion store. 
+          Add your email below to stay up-to-date with announcements and our launch deals.
+        </p>
+        <form action="#">
+          <input type="email" name="email" id="email-field" placeholder="Email Address" class="form-email">         
+          <div class="img-form" id="button">
+            <input type="image" src="images/icon-arrow.svg" alt="submit">
+          </div>
+        </form>
+        <span id="ms-error"></span>
+      </section>
+    </div>
+    
+  </main>
+  
+<!--   
+  <footer>
+    <p class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="#">Your Name Here</a>.
+    </p>
+  </footer> -->
+
+  <script>
+    const emailField = document.getElementById('email-field');
+    const emailerror = document.getElementById('ms-error');
+
+    const btnSubmit = document.getElementById('button');
+
+    function checkMail() {
+      
+      const regex= /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+
+      if(!emailField.value.match(regex) && emailField.value.length != 0){
+        emailerror.innerHTML = "Please provide a valid email";
+        emailField.classList.add('bg-error');
+        return false
+      }
+
+      emailField.innerHTML = "";
+      return true;
+    }
+
+    btnSubmit.addEventListener('click', checkMail);
+
+  </script>
+</body>
+</html>
